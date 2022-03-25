@@ -15,7 +15,7 @@ export const AppRouter = () => {
     useEffect(() => {
         firebase.auth().onAuthStateChanged( ( user ) => {
             if ( user?.uid ) {
-                dispatch( login( user.id, user.displayName ) );
+                dispatch( login( user.uid, user.displayName ) );
                 setIsLoggedIn( true );
             } else {
                 setIsLoggedIn( false );
@@ -33,14 +33,14 @@ export const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/auth/*' element={
-                    <PublicRoute >
+                <Route path='auth/*' element={
+                    <PublicRoute isValid={ isLoggedIn }>
                         <AuthRouter />
                     </PublicRoute >
                     }
                 />
-                <Route path='/' element={
-                    <PrivateRoute >
+                <Route path='/*' element={
+                    <PrivateRoute isValid={ isLoggedIn } >
                         <JournalScreen />
                     </PrivateRoute >
                     }

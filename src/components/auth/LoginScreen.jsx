@@ -21,10 +21,10 @@ export const LoginScreen = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch( startLoginEmailPassword( email, password ) )
     if( isFormValid() ){
+      dispatch( startLoginEmailPassword( email, password ) )
       console.log( 'Formulario Correcto' );
-    };
+    }
 };
   
 

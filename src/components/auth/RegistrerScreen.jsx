@@ -104,7 +104,7 @@ export const RegistrerScreen = () => {
           className='btn btn-primary btn-block'
           disabled={ loading }
         >
-          Acceder
+          Registro
         </button>
         <div className='auth__social-networks'>
           <h3>Socail Networks</h3>

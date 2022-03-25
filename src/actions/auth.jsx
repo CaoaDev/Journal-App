@@ -5,15 +5,12 @@ import { finishLoading, startLoading } from './ui';
 export const startLoginEmailPassword= ( email, password ) => {
     return ( dispatch ) => {
         dispatch( startLoading() );
-        console.log(email,password);
         firebase.auth().signInWithEmailAndPassword( email, password )
         .then( ( { user } ) => {
             dispatch( login( user.uid, user.displayName ) );
-            console.log(user);
             dispatch( finishLoading () );
         })
         .catch( e => {
-            console.log( e );
             dispatch( finishLoading () );
         });
     };
