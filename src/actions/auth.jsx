@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { firebase, googleAuthProvider } from '../firebase/firebase-config';
 import { types } from '../types/types';
 import { finishLoading, startLoading } from './ui';
@@ -12,7 +13,8 @@ export const startLoginEmailPassword= ( email, password ) => {
         })
         .catch( e => {
             dispatch( finishLoading () );
-        });
+            Swal.fire( 'Error', e.message, 'error' )
+        })
     };
 };
 // para que funcione tiene que ir el email al incio
@@ -26,6 +28,7 @@ export const startRegistrer = ( email, password, name ) => {
                 )
             })
             .catch( e => {
+                Swal.fire( 'Error', e.message, 'error' )
                 console.log( e );
             });
     };

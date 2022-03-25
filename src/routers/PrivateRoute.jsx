@@ -8,7 +8,7 @@ export const PrivateRoute = ( { children, isValid } = {} ) => {
 
     return isValid
         ? children
-        : <Navigate to='auth/login' element={ < LoginScreen /> } />
+        : ( <Navigate to='auth/login' element={ < LoginScreen /> } /> )
 }
 
 PrivateRoute.propTypes = {

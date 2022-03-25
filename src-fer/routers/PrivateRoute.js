@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Route, } from 'react-router-dom';
-import { LoginScreen } from '../../srcmio/components/auth/LoginScreen';
+import { Route, Redirect } from 'react-router-dom';
 
 
 export const PrivateRoute = ({
@@ -16,7 +15,7 @@ export const PrivateRoute = ({
             component={ (props) => (
                 ( isAuthenticated )
                     ? ( <Component { ...props } /> )
-                    : ( <Route path='/*' element={<LoginScreen />} /> )
+                    : ( <Redirect to="/auth/login" /> )
             )}
         
         />

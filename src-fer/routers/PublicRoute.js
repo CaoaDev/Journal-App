@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Route } from 'react-router-dom';
-import { AuthRouter } from '../../srcmio/routers/AuthRouter';
+import { Route, Redirect } from 'react-router-dom';
 
 
 export const PublicRoute = ({
@@ -15,7 +14,7 @@ export const PublicRoute = ({
         <Route { ...rest }
             component={ (props) => (
                 ( isAuthenticated )
-                    ? ( <Route path='/*' element={ <AuthRouter /> } /> )
+                    ? ( <Redirect to="/" /> )
                     : ( <Component { ...props } /> )
             )}
         

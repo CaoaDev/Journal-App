@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
-    Routes,
+    Switch,
     Redirect
   } from 'react-router-dom';
 
@@ -52,7 +52,7 @@ export const AppRouter = () => {
     return (
         <Router>
             <div>
-                <Routes>
+                <Switch>
                     <PublicRoute 
                         path="/auth"
                         component={ AuthRouter }
@@ -66,7 +66,10 @@ export const AppRouter = () => {
                         component={ JournalScreen }
                     />
 
-                </Routes>
+                    <Redirect to="/auth/login" />
+
+
+                </Switch>
             </div>
         </Router>
     )

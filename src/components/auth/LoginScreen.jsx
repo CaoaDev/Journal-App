@@ -1,10 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import validator from 'validator';
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
-import { removeError, setError } from '../../actions/ui';
 
 export const LoginScreen = () => {
 
@@ -18,27 +16,30 @@ export const LoginScreen = () => {
   });
   
   const { email, password } = formValues;
-
   const handleLogin = (e) => {
     e.preventDefault();
-    if( isFormValid() ){
       dispatch( startLoginEmailPassword( email, password ) )
-      console.log( 'Formulario Correcto' );
-    }
 };
+//   const handleLogin = (e) => {
+//     e.preventDefault();
+//     if( isFormValid() ){
+//       dispatch( startLoginEmailPassword( email, password ) )
+//       console.log( 'Formulario Correcto' )
+//     }
+// };
   
 
-  const isFormValid = () => {
-    if ( !validator.isEmail( email ) ){
-      dispatch( setError( 'Check Email ' ) )
-        return false;
-    } else if ( password.trim().length === 0 ){
-      dispatch( setError( 'Check Password ' ) )
-        return false;
-    }
-    dispatch( removeError() )
-    return true;
-  }
+  // const isFormValid = () => {
+  //   if ( !validator.isEmail( email ) ){
+  //     dispatch( setError( 'Check Email ' ) )
+  //       return false;
+  //   } else if ( password.trim().length === 0 ){
+  //     dispatch( setError( 'Check Password ' ) )
+  //       return false;
+  //   }
+  //   dispatch( removeError() )
+  //   return true;
+  // }
 
   const handleGoogleLogin = () => {
     dispatch( startGoogleLogin() );
