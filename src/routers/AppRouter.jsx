@@ -9,16 +9,17 @@ import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { AuthRouter } from './AuthRouter';
+import { starLoadingNotes } from '../actions/notes';
 
 export const AppRouter = () => {
     const dispatch = useDispatch();
     const [cheking, setCheking] = useState( true );
     const [isLoggedIn, setIsLoggedIn] = useState( false );
         useEffect( () => {
-            firebase.auth().onAuthStateChanged( ( user ) => {
+            firebase.auth().onAuthStateChanged( async ( user ) => {
                 if( user?.uid ){
                     dispatch( login( user.uid, user.displayName) );
-                    console.log(user);
+                    dispatch( starLoadingNotes ( user.uid ) );
                 }
                 setIsLoggedIn( !!user?.uid );
                 setCheking( false );

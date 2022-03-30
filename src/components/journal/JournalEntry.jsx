@@ -1,25 +1,45 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { activeNote } from '../../actions/notes';
 
-export const JournalEntry = () => {
+export const JournalEntry = ( { id, date, title, body, url } ) => {
+  const noteDate = moment(date);
+  const dispatch = useDispatch();
+  const handleEntryClick = () => {
+    dispatch( 
+      activeNote ( id, {
+        date, title, body, url
+      })
+    );
+  }
   return (
-    <div className='journal__entry pointer'>
+    <div 
+      className='journal__entry pointer animate__animated animate__fadeInLeft animate__faster'
+      onClick={ handleEntryClick }  
+    >
+      { 
+        url && 
         <div
-        className='journal__entry-picture'
-        style={{
-          backgroundSize: 'cover',
-          backgroundImage: 'url(https://www.todofondos.net/wp-content/uploads/fondo-de-pantalla-de-etiqueta-relajante-pagina-4-Arboles-relajantes-cascadas-iceys-1024x576.jpg)'
-        }}/>
+          className='journal__entry-picture'
+          style={{
+            backgroundSize: 'cover',
+            backgroundImage: `url(${ url } )`
+            // https://www.todofondos.net/wp-content/uploads/fondo-de-pantalla-de-etiqueta-relajante-pagina-4-Arboles-relajantes-cascadas-iceys-1024x576.jpg
+          }}
+        />
+      }
         <div className='journal__entry-body'>
           <p className='journal__entry-title'>
-            Inicio de Dia
+            { title }
           </p>
           <p className='journal__entry-content'>
-            asdsdsadasdasdasdasads
+            { body }
           </p>
         </div>
         <div className='journal__entry-date-box'>
-          <span>Monday</span>
-          <h4>14</h4>
+          <span> { noteDate.format( 'dddd' ) } </span>
+          <h4> { noteDate.format( 'Do' ) } </h4>
         </div>
     </div>
   )
