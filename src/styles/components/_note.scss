@@ -12,14 +12,15 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 20px 10px 20px;
-    width: 76vw;
+    width: 75vw;
 }
 
-.notes__constent {
+.notes__content {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 20px;
+    width: 75vw;
 }
 
 .notes__title-input, .notes__textarea {
