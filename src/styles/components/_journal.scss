@@ -1,16 +1,22 @@
+html {
+    display: block;
+    height: 70vh;
+}
+
 .journal__main-content {
     display: flex;
+    height: 100vh;
 }
 
 .journal__sidebar {
     background-color: $dark-grey;
     color: whitesmoke;
-    display: flex;
     flex-direction: column;
     height: 100vh;
     padding-left: 10px;
     padding-right: 10px;
-    width: 450px;
+    width: 30%;
+    overflow-y: scroll;
 }
 
 .journal__sidebar-navbar {
@@ -40,7 +46,11 @@
 .journal__entries {
     flex: 1 1 auto;
     margin-top: 30px;
-    overflow-y: scroll;
+    height: 60vh;
+    width: 100%;
+    overflow: auto;
+
+    // overflow-y: scroll;
 }
 
 .journal__entry {
@@ -50,7 +60,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    overflow: hidden;
+    // overflow: hidden;
+
     
     &:hover {
         color: darken($color: $primary, $amount: 20);
