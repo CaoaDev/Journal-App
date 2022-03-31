@@ -1,6 +1,5 @@
 html {
     display: block;
-    height: 70vh;
 }
 
 .journal__main-content {
@@ -8,7 +7,7 @@ html {
     height: 100vh;
 }
 
-.journal__sidebar {
+.sidebar {
     background-color: $dark-grey;
     color: whitesmoke;
     flex-direction: column;
@@ -16,85 +15,81 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     width: 30%;
-    overflow-y: scroll;
     overflow-x: hidden;
-}
 
-.journal__sidebar-navbar {
-    display: inline-block;
-    justify-content: space-between;
-}
+    &__navbar {
+        display: inline-block;
+        justify-content: space-between;
 
-.journal__sidebar-navbar h3 {
-    font-weight: lighter;
-}
+        h3 {
+            font-weight: lighter;
+        }
+    }
 
-.journal__new-entry {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 30px;
-    width: 100%;
-    transition: color .3s ease;
+    &__new-entry {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 30px;
+        width: 100%;
+        transition: color .3s ease;
 
-    &:hover {
-        color: darken($color: whitesmoke, $amount: 20);
+        &:hover {
+            color: darken($color: whitesmoke, $amount: 20);
+        }
     }
 }
 
 .journal__entries {
     flex: 1 1 auto;
     margin-top: 30px;
-    height: 60vh;
     width: 100%;
     overflow: auto;
+    height: 320px;
+    padding: 2px 3px;
 
-    // overflow-y: scroll;
-}
-
-.journal__entry {
-    background-color: whitesmoke;
-    border-radius: 4px;
-    color: $dark-grey;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    // overflow: hidden;
-
+    .journal__entry {
+        background-color: whitesmoke;
+        border-radius: 4px;
+        color: $dark-grey;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+     
+        &:hover {
+            color: darken($color: $primary, $amount: 20);
+        }
     
-    &:hover {
-        color: darken($color: $primary, $amount: 20);
+        .__entry-picture {
+            height: 75px;
+            width: 75px;
+        }
+    
+        .__entry-body {
+            padding: 10px;
+    
+            .__entry-title {
+                font-size: 14px;
+                font-weight: bold;
+            }
+    
+            .__entry-content {
+                font-size: 10px;
+            }
+        }
+    
+        .__entry-date-box {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5px;
+    
+            span {
+                font-size: 12px;
+            }
+        }
     }
-}
-
-.journal__entry-picture {
-    height: 75px;
-    width: 75px;
-}
-
-.journal__entry-body {
-    padding: 10px;
-}
-
-.journal__entry-title {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.journal__entry-content {
-    font-size: 10px;
-}
-
-.journal__entry-date-box {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5px;
-}
-
-.journal__entry-date-box span {
-    font-size: 12px;
 }

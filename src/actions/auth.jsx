@@ -9,7 +9,7 @@ export const startLoginEmailPassword= ( email, password ) => {
         dispatch( startLoading() );
         firebase.auth().signInWithEmailAndPassword( email, password )
         .then( ( { user } ) => {
-            dispatch( login( user.uid, user.displayName ) );
+            dispatch( login( user.uid, user.displayName, '' ) );
             dispatch( finishLoading () );
         })
         .catch( e => {
@@ -27,7 +27,7 @@ export const startRegistrer = ( email, password, name ) => {
             .then( async ({ user }) => {
                 await user.updateProfile( { displayName: name } );
                 dispatch(
-                    login( user.uid, user.displayName )
+                    login( user.uid, user.displayName, '' )
                 )
             })
             .catch( e => {
@@ -42,17 +42,18 @@ export const startGoogleLogin= () => {
         firebase.auth().signInWithPopup( googleAuthProvider )
         .then( ({ user }) => {
             dispatch(
-                login( user.uid, user.displayName )
+                login( user.uid, user.displayName, user.photoURL )
             );
         });
     };
 };
 
-export const login = ( uid, displayName ) => ({
+export const login = ( uid, displayName, photoURL ) => ({
         type: types.login,
         payload: {
             uid,
-            displayName
+            displayName,
+            photoURL
         }
 });
 

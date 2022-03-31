@@ -21,7 +21,7 @@ export const JournalEntry = ( { id, date, title, body, url } ) => {
       { 
         url && 
         <div
-          className='journal__entry-picture'
+          className='__entry-picture'
           style={{
             backgroundSize: 'cover',
             backgroundImage: `url(${ url } )`
@@ -29,18 +29,18 @@ export const JournalEntry = ( { id, date, title, body, url } ) => {
           }}
         />
       }
-        <div className='journal__entry-body'>
-          <p className='journal__entry-title'>
-            { title }
-          </p>
-          <p className='journal__entry-content'>
-            { body }
-          </p>
-        </div>
-        <div className='journal__entry-date-box'>
-          <span> { noteDate.format( 'dddd' ) } </span>
-          <h4> { noteDate.format( 'Do' ) } </h4>
-        </div>
+      <div className='__entry-body'>
+        <p className='__entry-title'>
+          { title }
+        </p>
+        <p className='__entry-content'>
+          { body }
+        </p>
+      </div>
+      <div className='__entry-date-box'>
+        <span> { noteDate.format( 'dddd' ) } </span>
+        <h4> { noteDate.format( 'Do' ) } </h4>
+      </div>
     </div>
   )
 }

@@ -1,53 +1,68 @@
-.notes__main-content {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 50vh;
-}
+.notes {
+    &__main-content {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
 
-.notes__appbar {
-    align-items: center;
-    background-color: $primary;
-    color: whitesmoke;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px 10px 20px;
-    width: 75vw;
-}
+        .notes__appbar {
+            align-items: center;
+            background-color: $primary;
+            color: whitesmoke;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px 10px 20px;
+            width: 100%;
+        }
 
-.notes__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 20px;
-    width: 75vw;
-}
+        .__content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+            width: 75vw;
 
-.notes__title-input, .notes__textarea {
-    border: none;
+            .__image img {
+                box-shadow: 7px 7px $dark-grey;
+                height: 150px;
+            }
 
-    &:focus {
-        outline: none;
+            .__title-input {
+                color: $dark-grey;
+                font-size: 25px;
+                font-weight: 700;
+                resize: none;
+                margin-bottom: 10px;
+            }
+
+            .__textarea {
+                border: none;
+                color: $dark-grey;
+                font-size: 20px;
+                flex: 1 1 auto;
+                resize: none;
+            }
+
+            .__title-input, &__textarea {
+                border: none;
+            
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .__footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            
+            button {
+                border-radius: 15px;
+                width: 30%;
+            }
+        }
     }
-}
-
-.notes__title-input {
-    color: $dark-grey;
-    font-size: 25px;
-    font-weight: 700;
-    resize: none;
-    margin-bottom: 10px;
-}
-
-.notes__textarea {
-    border: none;
-    color: $dark-grey;
-    font-size: 20px;
-    flex: 1 1 auto;
-    resize: none;
-}
-
-.notes__image img {
-    box-shadow: 7px 7px $dark-grey;
-    height: 150px;
 }

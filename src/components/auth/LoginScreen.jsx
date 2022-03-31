@@ -20,26 +20,6 @@ export const LoginScreen = () => {
     e.preventDefault();
       dispatch( startLoginEmailPassword( email, password ) )
 };
-//   const handleLogin = (e) => {
-//     e.preventDefault();
-//     if( isFormValid() ){
-//       dispatch( startLoginEmailPassword( email, password ) )
-//       console.log( 'Formulario Correcto' )
-//     }
-// };
-  
-
-  // const isFormValid = () => {
-  //   if ( !validator.isEmail( email ) ){
-  //     dispatch( setError( 'Check Email ' ) )
-  //       return false;
-  //   } else if ( password.trim().length === 0 ){
-  //     dispatch( setError( 'Check Password ' ) )
-  //       return false;
-  //   }
-  //   dispatch( removeError() )
-  //   return true;
-  // }
 
   const handleGoogleLogin = () => {
     dispatch( startGoogleLogin() );

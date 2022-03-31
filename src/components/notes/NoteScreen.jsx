@@ -29,12 +29,12 @@ export const NoteScreen = () => {
   return (
     <div className='notes__main-content'>
         <NotesAppBar/>
-        <div className='notes__content'>
+        <div className='__content'>
           <input
             type='text'
             placeholder='Some awesometitle'
             name='title'
-            className='notes__title-input'
+            className='__title-input'
             autoComplete='off'
             value={ title }
             onChange={ handleInputChange }
@@ -42,14 +42,14 @@ export const NoteScreen = () => {
           <textarea 
             placeholder='What happened today'
             name='body'
-            className='notes__textarea'
+            className='__textarea'
             value={ body }
             onChange={ handleInputChange }
           />
           {
             ( note.url )
             && (
-              <div className='notes__image'>
+              <div className='__image'>
                 <img
                   src={ note.url }
                   alt='imagen'
@@ -58,12 +58,14 @@ export const NoteScreen = () => {
             )
           }
         </div>
-        <button 
-          className="btn btn-danger"
-          onClick={ handleDelete }
-        >
-          Delete
-        </button>
+        <div className='__footer'>
+          <button 
+            className="btn btn-danger"
+            onClick={ handleDelete }
+          >
+            Delete
+          </button>
+        </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ import { JournalEntries } from './JournalEntries';
 
 export const Sidebar = () => {
     const dispatch = useDispatch();
-    const { name } = useSelector( state => state.auth );
+    const { name, photoURL } = useSelector( state => state.auth );
     const handleLogout = () => {
         dispatch( startLogout() )
     }
@@ -15,11 +15,12 @@ export const Sidebar = () => {
     }
 
   return (
-    <aside className='journal__sidebar'>
-        <div className='journal__sidebar-navbar'>
+    <aside className='sidebar'>
+        <div className='sidebar__navbar'>
             <h3 className='mt-5'>
                 <i className="far fa-moon"></i>
                 <span>{ name }</span>
+                <img src={ photoURL } alt={ name } />
             </h3>
             <button 
                 className='btn'
@@ -29,7 +30,7 @@ export const Sidebar = () => {
             </button>
         </div>
         <div 
-            className='journal__new-entry'
+            className='sidebar__new-entry'
             onClick={ handleAddEntry }
         >
             <i className='far fa-calendar-plus fa-5x' />
